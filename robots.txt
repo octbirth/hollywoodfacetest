@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://hollywoodfacetest.site/sitemap.xml
