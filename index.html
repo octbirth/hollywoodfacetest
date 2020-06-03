@@ -20,8 +20,8 @@
 	/>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ed762e4a621464c"></script>
-<meta name="naver-site-verification" content="5c1e505270d3f5414c330ccb4b60363c18633c7c" />
+	<meta name="naver-site-verification" content="5c1e505270d3f5414c330ccb4b60363c18633c7c" />
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 
 <body>
@@ -80,12 +80,34 @@
 			</div>
 			<p class="result-message"></p>
 			<div id="label-container" class="d-flex flex-column justify-content-around"></div>
-			<div class="addthis_inline_share_toolbox"></div>
-
 			<div class="pt-3 image-title-wrap">
 				<button type="button p-2" class="try-again-btn" onclick="window.location.reload();">
 					<span class="try-again-text">Try with other picture</span>
 				</button>
+				<section>
+					<a href="#" onclick="javascript:window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20'
++encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog',
+ 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" alt="Share on Twitter">
+						<img src="./img/Twitter.png">
+					</a>
+					<a href="#" onclick="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u='
++encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog',
+ 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" alt="Share on Facebook">
+						<img src="./img/Facebook.png">
+					</a>
+					<a href="#" onclick="javascript:window.open('https://story.kakao.com/s/share?url='+encodeURIComponent(document.URL), 'kakaostorysharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" target="_blank" alt="Share on kakaostory">
+						<img src="./img/Kakao_Story.png">
+					</a>
+					<a href="#" onclick="javascript:window.open('https://share.naver.com/web/shareView.nhn?url='
++encodeURIComponent(document.URL)+'&title='+encodeURIComponent(document.title),
+ 'naversharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" alt="Share on Naver">
+						<img src="./img/Naver.png">
+					</a>
+					<a id="kakao-link-btn" href="javascript:sendLink()">
+<img src="./img/Kakao.png"/>
+</a>
+
+				</section>
 			</div>
 		</div>
 	</div>
@@ -94,6 +116,51 @@
 			<p>&copy; By NJ, JUN 2020.</p>
 		</div>
 	</footer>
+	
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type='text/javascript'>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('733d9e70ea4183c6bb48b84c6f9ff516');
+    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createDefaultButton({
+      container: '#kakao-link-btn',
+      objectType: 'feed',
+      content: {
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'https://hollywoodfacetest.site',
+          webUrl: 'https://hollywoodfacetest.site'
+        }
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://hollywoodfacetest.site',
+            webUrl: 'https://hollywoodfacetest.site'
+          }
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://hollywoodfacetest.site',
+            webUrl: 'https://hollywoodfacetest.site'
+          }
+        }
+      ]
+    });
+  //]]>
+</script>
+	
 
 	<script>
 		function readURL(input) {
@@ -267,6 +334,55 @@
 			}
 		}
 	</script>
+	<script>
+		var getObjId;
+		var getObjClass;
+		var viewToastMsgSNS = document.getElementById("toastMsgSNS");
+
+		function watchEventClick(event) {
+			getObjId = event.target.id;
+			getObjClass = event.target.className;
+			if (getObjClass == "shareBtn" && chk_post.length) {
+				switch (getObjId) {
+					case "shareFB":
+						window.open(shareUrlFB, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareTWT":
+						window.open(shareUrlTWT, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareBand":
+						window.open(shareUrlBand, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareNaver":
+						window.open(shareUrlNaver, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "sharePin":
+						window.open(shareUrlPin, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareKS":
+						window.open(shareUrlKS, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareKT":
+						window.open(shareUrlKT, '', 'scrollbars=no, width=584, height=635');
+						break;
+					case "shareAddrCopy":
+						var dumTA = document.createElement("input");
+						document.body.appendChild(dumTA);
+						dumTA.value = shareUrlAddr;
+						dumTA.select();
+						document.execCommand("copy");
+						dumTA.remove();
+						viewToastMsgSNS.className = "show";
+						setTimeout(function() {
+							viewToastMsgSNS.className = viewToastMsgSNS.className.replace("show", "");
+						}, 2000);
+						break;
+				}
+			}
+		}
+		document.addEventListener("click", watchEventClick);
+	</script>
+
 	<script>
 		function iosApp() {
 			document.getElementById("coupang").style.display = "none";
