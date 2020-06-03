@@ -425,3 +425,7 @@ input:checked + label > .knob > i:before {
     width: 320px;
     margin: 0 auto;
 }
+
+.addthis_inline_share_toolbox{
+	margin-top: 3%;
+}
