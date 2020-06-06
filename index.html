@@ -39,6 +39,27 @@
 				</ul>
 			</div>
 		</nav>
+		<section class ="container d-flex flex-column justify-content-center align-items-center">
+			<span class = "select-language">Language</span>
+			<select onchange ="changeLangugage(this)" class ="custom-select col-8">...
+			</select>
+			</section>
+		<script>
+        var ua = navigator.userAgent.toLowerCase();
+        function changeLanguage(lang) {
+            if( ( navigator.userAgent.indexOf('Mac OS') > 0 && navigator.userAgent.indexOf('Safari') <= 0 ) || ( ( navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('wv)') > 0 ) ) ){
+                if (ua.match('android') != null) {
+                    window.open("googlechrome://navigate?url=animalface.site/"+lang.value+"/index.html"); //android
+                } else if (ua.indexOf("iphone")>-1||ua.indexOf("ipad")>-1||ua.indexOf("ipod")>-1) { 
+                    window.location.href = "https://hollywoodfacetest.site/"+lang.value+"/index.html";
+                } else {
+                    window.location.href = "https://hollywoodfacetest.site/"+lang.value+"/index.html";
+                }
+            } else {
+                window.location.href = "https://hollywoodfacetest.site/"+lang.value+"/index.html";
+            }
+        }
+    </script>
 		<section class="section">
 			<h1 class="title">What type of Hollywood star would you be?</h1>
 			<h4 class="subtitle">Take this artificial intelligence-based test to find out what type of hollywood star face you have! </h2>
