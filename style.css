@@ -84,7 +84,7 @@ body {
 
 .subtitle {
   line-height: 1.53;
-  text-align: left;
+  text-align: center;
   color: #35465d;
 }
 
@@ -95,6 +95,7 @@ body {
 
 .pb-2{
 	margin-top: 5%;
+	margin-bottom : 0;
 	text-align : center;
 }
 
